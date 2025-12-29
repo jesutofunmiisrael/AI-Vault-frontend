@@ -42,11 +42,11 @@ const Login = () => {
 
       const result = await response.json();
 
-      if (response.status === 200) {
+      if (response.status) {
         localStorage.setItem("token", result.token);
         toast.success(result.message || "Welcome!");
         navigate("/dashboard");
-      } else if (response.status === 403) {
+      } else if (response.status) {
         toast.error(result.message || "Email or password incorrect");
       }
     } catch (error) {
@@ -63,10 +63,10 @@ const Login = () => {
 
   
   return (
-   <>
+ 
 
 
-<>
+
  <div className="auth-page">
   <div className="auth-container">
     <form className="auth-form" onSubmit={handleSubmit(onSubmit)}>
@@ -83,6 +83,7 @@ const Login = () => {
           type="email"
           placeholder="you@example.com"
           {...register("email")}
+           autoComplete="username"
         />
         {errors.email && <p className="error-message">{errors.email.message}</p>}
       </div>
@@ -93,6 +94,8 @@ const Login = () => {
           type={ShowPassword? "text" : "password"}
           placeholder="••••••••"
           {...register("password")}
+           autoComplete="current-password"
+
         />
 
         <span
@@ -120,9 +123,7 @@ const Login = () => {
   </div>
 </div>
 
-</>
 
-    </>
   )
 }
 
