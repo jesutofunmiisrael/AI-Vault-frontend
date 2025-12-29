@@ -31,7 +31,7 @@ const TextToSpeech = () => {
           "Content-Type": "application/json",
           Authorization: `Bearer ${localStorage.getItem("token") || ""}`,
         },
-        body: JSON.stringify({ text, voice }),  // 👈 send voice
+        body: JSON.stringify({ text, voice }),  
       });
 
       const data = await res.json();
@@ -56,7 +56,7 @@ const TextToSpeech = () => {
     <div className="tool-card">
       <h2>Text to Speech</h2>
 
-      {/* 👇 Voice Selector */}
+  
       <label style={{ display: "block", marginBottom: 8 }}>Choose Voice</label>
       <select
         value={voice}
