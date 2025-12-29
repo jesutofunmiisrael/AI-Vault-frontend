@@ -29,32 +29,42 @@ const Login = () => {
     },
   });
 
-  const onSubmit = async (data) => {
-    setCreating(true);
-    try {
-      const response = await fetch(`https://ai-vault-backend-diiu.onrender.com/api/auth/login`, {
+ const onSubmit = async (data) => {
+  setCreating(true);
+  try {
+    const response = await fetch(
+      "https://ai-vault-backend-diiu.onrender.com/api/auth/login",
+      {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
-      });
-
-      const result = await response.json();
-
-      if (response.status) {
-        localStorage.setItem("token", result.token);
-        toast.success(result.message || "Welcome!" );
-        navigate("/dashboard");
-      } else if (response.status) {
-        toast.error(result.message || "Email or password incorrect");
       }
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setCreating(false);
+    );
+
+    const result = await response.json();
+
+    if (response.status === 200) {
+   
+      localStorage.setItem("token", result.token);
+      localStorage.setItem("user", JSON.stringify(result.user));
+
+      toast.success(result.message || "Welcome!");
+      navigate("/dashboard");
+    } else if (response.status === 401 || response.status === 403) {
+      toast.error(result.message || "Email or password incorrect");
+    } else {
+      toast.error(result.message || "Something went wrong");
     }
-  };
+  } catch (error) {
+    console.error("Login error:", error);
+    toast.error("Network error or server is down");
+  } finally {
+    setCreating(false);
+  }
+};
+
 
 
 
