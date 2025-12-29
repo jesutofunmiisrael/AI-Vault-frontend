@@ -42,11 +42,11 @@ const Login = () => {
 
       const result = await response.json();
 
-      if (response.status) {
+      if (response.status = 201) {
         localStorage.setItem("token", result.token);
         toast.success(result.message || "Welcome!");
         navigate("/dashboard");
-      } else if (response.status) {
+      } else if (response.status = 500) {
         toast.error(result.message || "Email or password incorrect");
       }
     } catch (error) {
