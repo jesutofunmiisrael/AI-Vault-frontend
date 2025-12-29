@@ -1,0 +1,156 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.auth-page {
+  min-height: 100vh;
+  width: 100%;
+ background-image: url("https://img.freepik.com/free-vector/realistic-technology-background_52683-73672.jpg?semt=ais_hybrid&w=740&q=80"); /* */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: rgb(23, 34, 54);
+  display: flex;
+  justify-content: center;
+}
+
+.auth-container {
+  width: 100%;
+  max-width: 1100px;
+  padding: 60px 20px;
+  display: flex;
+  justify-content: center;
+  
+}
+
+
+.auth-form {
+  width: 100%;
+  max-width: 420px;
+     background: linear-gradient(135deg, #172236, #0c9488, #f59e0b);
+  background-size: 400% 400%;
+  animation: gradientMove 15s ease infinite;
+  border-radius: 18px;
+  padding: 40px 32px;
+  color: #fff;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.45);
+  border: rgba(255, 255, 255, 0.863);
+}
+@keyframes gradientMove {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+.logo {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.auth-form h1 {
+  text-align: center;
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+.subtitle {
+  text-align: center;
+  color: #bcd3df;
+  /* font-size: 0.9em; */
+  margin-bottom: 30px;
+}
+
+
+.input-group {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.input-group label {
+  display: block;
+  /* font-size: 0.79rem; */
+  color: #c9dce6;
+  margin-bottom: 6px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 15px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.15);
+  background: transparent;
+  color: #fff;
+  font-size: 0.95rem;
+}
+
+.input-group input::placeholder {
+  color: #7fa3b8;
+}
+
+.home-back{
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.9);
+     /* color: inherit */
+      cursor: pointer;
+ 
+}
+
+.home-back:hover {
+  text-decoration: underline; /* optional */
+}
+a {
+  text-decoration: none;
+}
+
+
+
+.toggle-password {
+  position: absolute;
+  right: 14px;
+  top: 40px;
+  font-size: 0.75rem;
+  color: #9bb7c7;
+  cursor: pointer;
+}
+
+
+button {
+  width: 100%;
+  padding: 15px;
+  border-radius: 14px;
+  border: none;
+  background: rgb(0, 168, 95);
+  color: #000;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.login-text {
+  text-align: center;
+  margin-top: 20px;
+  /* font-size: 0.85rem; */
+  color: #bcd3df;
+}
+
+.login-text span {
+  color:rgb(189, 167, 108);
+  cursor: pointer;
+}
+
+
+.error-message {
+  color: #ff6b6b;
+  font-size: 0.7rem;
+  margin-top: 4px;
+}
+
+
+@media (max-width: 480px) {
+  .auth-form {
+    padding: 32px 22px;
+  }
+}
