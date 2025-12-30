@@ -16,7 +16,7 @@ const GenerateImage = () => {
     setImage(null);
 
     try {
-      const res = await fetch("https://ai-vault-backend-diiu.onrender.com/api/Airouter/generateimage", {
+      const res = await fetch("http://localhost:3007/api/Airouter/generateimage", {
         method: "POST",
         headers: {
              authorization: `Bearer ${localStorage.getItem("token")}`,

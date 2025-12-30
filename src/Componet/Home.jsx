@@ -4,10 +4,20 @@ import "./Home.css";
 import { Link } from "react-router-dom";
 
 const Home = () => {
-  const handleRedirect = () => {
-    const token = localStorage.getItem("token");
-    return token ? "/dashboard" : "/signup";
-  };
+const handleRedirect = () => {
+  const token = localStorage.getItem("token");
+
+  if (!token) return "/signup";
+
+  try {
+    const payload = JSON.parse(atob(token.split(".")[1]));
+    const isExpired = payload.exp * 1000 < Date.now();
+
+    return isExpired ? "/signup" : "/dashboard";
+  } catch {
+    return "/signup";
+  }
+};
 
   return (
     <div className="container">

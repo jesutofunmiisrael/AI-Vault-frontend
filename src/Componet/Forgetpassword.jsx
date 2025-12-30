@@ -19,7 +19,7 @@ const ForgotPassword = () => {
 
   const onSubmit = async (data) => {
     try {
-      const response = await fetch("https://ai-vault-backend-diiu.onrender.com/api/auth/forgetpassword", {
+      const response = await fetch("http://localhost:3007api/auth/forgetpassword", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
