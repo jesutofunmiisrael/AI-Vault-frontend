@@ -255,6 +255,7 @@
 .start {
   width: 180px;
   margin-top: 10px;
+  color: white;
 }
 
 @media screen and (max-width: 768px) {
