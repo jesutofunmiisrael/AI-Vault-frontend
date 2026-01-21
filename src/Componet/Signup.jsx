@@ -34,7 +34,7 @@ useForm({
 const onSubmit = async(data)=>{
   setloading(true);
   try {
-    const res = await fetch(`http://localhost:3007/api/auth/signup`,{
+    const res = await fetch(`https://ai-vault-backend-diiu.onrender.com/api/auth/signup`,{
     method: "POST",
     headers:{
       "Content-Type":"application/json"

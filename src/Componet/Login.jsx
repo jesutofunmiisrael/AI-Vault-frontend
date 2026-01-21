@@ -33,7 +33,7 @@ const Login = () => {
   setCreating(true);
   try {
     const response = await fetch(
-      "http://localhost:3007/api/auth/login",
+      "https://ai-vault-backend-diiu.onrender.com/api/auth/login",
       {
         method: "POST",
         headers: {

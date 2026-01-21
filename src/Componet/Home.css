@@ -226,7 +226,7 @@
 }
 
 
-/* LEFT ↔ RIGHT animation (desktop & tablet) */
+
 @keyframes moveLeftRight {
   0% {
     transform: translateX(0);
@@ -276,7 +276,7 @@
     height: auto;
     padding: 20px;
 
-    /* change animation on mobile */
+  
     animation: moveUpDown 2.5s ease-in-out infinite;
   }
 
@@ -307,16 +307,16 @@
 }
 
 .footer a:hover {
-  color: #f59e0b; /* orange accent on hover */
+  color: #f59e0b;
 }
 
-/* Footer copyright */
+
 .footer p {
   font-size: 0.9rem;
   margin: 5px 0;
 }
 
-/* Optional: social icons */
+
 .footer .socials {
   display: flex;
   justify-content: center;

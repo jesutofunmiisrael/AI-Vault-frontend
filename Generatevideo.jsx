@@ -17,7 +17,7 @@ const GenerateVideo = () => {
     const toastId = toast.loading("🎬 Generating your video...");
 
     try {
-      const res = await fetch("http://localhost:3007/api/Airouter/generatevideo", {
+      const res = await fetch("https://ai-vault-backend-diiu.onrender.comhttp://localhost:3007/api/Airouter/generatevideo", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
