@@ -33,7 +33,7 @@ const ResetPassword = () => {
     const { email, otp, newPassword } = data;
 
     try {
-      const response = await fetch("https://ai-vault-backend-diiu.onrender.com/api/auth/resetPassword", {
+      const response = await fetch(`https://ai-vault-backend-diiu.onrender.com/api/auth/resetPassword`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, otp, newPassword }),

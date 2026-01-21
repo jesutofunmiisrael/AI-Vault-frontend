@@ -5,7 +5,7 @@ import { useState } from "react";
 import { toast } from "sonner";
 import "./Text.css"
 
-const API_BASE = "https://ai-vault-backend-diiu.onrender.com";
+const API_BASE = `https://ai-vault-backend-diiu.onrender.com`;
 
 const TextToSpeech = () => {
   const [text, setText] = useState("");
