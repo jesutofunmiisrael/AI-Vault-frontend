@@ -1,10 +1,14 @@
+
+
 import { useState } from "react";
 import { toast } from "sonner";
+import "./generatevideo.css"
 
 const GenerateVideo = () => {
   const [prompt, setPrompt] = useState("");
   const [loading, setLoading] = useState(false);
   const [videoUrl, setVideoUrl] = useState(null);
+  const [showModal, setShowModal] = useState(false);
 
   const handleGenerate = async () => {
     if (!prompt.trim()) {
@@ -13,19 +17,22 @@ const GenerateVideo = () => {
     }
 
     setLoading(true);
+    setShowModal(true);   // SHOW modal
     setVideoUrl(null);
     const toastId = toast.loading("🎬 Generating your video...");
 
     try {
-      const res = await fetch(`https://ai-vault-backend-diiu.onrender.com/api/Airouter/generatevideo`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          // Make sure your backend expects this format
-          authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-        body: JSON.stringify({ prompt }),
-      });
+      const res = await fetch(
+        `https://ai-vault-backend-diiu.onrender.com/api/Airouter/generatevideo`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+          body: JSON.stringify({ prompt }),
+        }
+      );
 
       if (!res.ok) {
         const text = await res.text();
@@ -45,11 +52,30 @@ const GenerateVideo = () => {
       toast.error(err.message || "Something went wrong", { id: toastId });
     } finally {
       setLoading(false);
+      setShowModal(false); // HIDE modal
     }
   };
 
   return (
     <div className="tool-card">
+
+      {showModal && (
+        <div className="modal">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h2>Hang tight!</h2>
+              <p>AI vault  is working hard 💪</p>
+            </div>
+
+            <div className="spinner"></div>
+
+            <p className="modal-motivation">
+              “Great things take time. Keep calm and wait for the magic ✨”
+            </p>
+          </div>
+        </div>
+      )}
+
       <h2>Generate Video</h2>
 
       <textarea
@@ -97,3 +123,4 @@ const GenerateVideo = () => {
 };
 
 export default GenerateVideo;
+

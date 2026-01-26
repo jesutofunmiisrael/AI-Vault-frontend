@@ -1,9 +1,6 @@
-
-
-
 import { useState } from "react";
 import { toast } from "sonner";
-import "./Text.css"
+import "./Text.css";
 
 const API_BASE = `https://ai-vault-backend-diiu.onrender.com`;
 
@@ -11,8 +8,8 @@ const TextToSpeech = () => {
   const [text, setText] = useState("");
   const [audioUrl, setAudioUrl] = useState("");
   const [loading, setLoading] = useState(false);
-
   const [voice, setVoice] = useState("shimmer");
+  const [showModal, setShowModal] = useState(false);
 
   const handleGenerateSpeech = async () => {
     if (!text.trim()) {
@@ -21,6 +18,7 @@ const TextToSpeech = () => {
     }
 
     setLoading(true);
+    setShowModal(true); // show modal
     setAudioUrl("");
 
     try {
@@ -30,7 +28,7 @@ const TextToSpeech = () => {
           "Content-Type": "application/json",
           Authorization: `Bearer ${localStorage.getItem("token") || ""}`,
         },
-        body: JSON.stringify({ text, voice }),  
+        body: JSON.stringify({ text, voice }),
       });
 
       const data = await res.json();
@@ -48,6 +46,7 @@ const TextToSpeech = () => {
       console.error(err);
     } finally {
       setLoading(false);
+      setShowModal(false); // hide modal
     }
   };
 
@@ -55,7 +54,23 @@ const TextToSpeech = () => {
     <div className="tool-card">
       <h2>Text to Speech</h2>
 
-  
+      {showModal && (
+        <div className="modal">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h2>Generating Speech</h2>
+              <p>Please wait while we convert your text 🎧</p>
+            </div>
+
+            <div className="spinner"></div>
+
+            <p className="modal-motivation">
+              “Your voice matters. Give it a moment to shine ✨”
+            </p>
+          </div>
+        </div>
+      )}
+
       <label style={{ display: "block", marginBottom: 8 }}>Choose Voice</label>
       <select
         value={voice}
@@ -90,7 +105,6 @@ const TextToSpeech = () => {
       {audioUrl && (
         <div style={{ marginTop: 20 }}>
           <h3>Generated Speech:</h3>
-
           <audio key={audioUrl} controls preload="auto">
             <source src={audioUrl} type="audio/mpeg" />
             Your browser does not support audio.
@@ -102,4 +116,3 @@ const TextToSpeech = () => {
 };
 
 export default TextToSpeech;
-
