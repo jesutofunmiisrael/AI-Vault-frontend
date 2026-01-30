@@ -127,7 +127,7 @@ const onSubmit = async(data)=>{
         )}
       </div>
 
-      <button type="submit">
+      <button type="submit"   disabled = {loading}> 
         {loading ? "Creating..." : "Sign Up"}
       </button>
 

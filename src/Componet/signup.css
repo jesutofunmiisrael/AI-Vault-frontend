@@ -154,3 +154,9 @@ button {
     padding: 32px 22px;
   }
 }
+
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

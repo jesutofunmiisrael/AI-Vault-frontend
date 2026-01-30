@@ -73,7 +73,6 @@ const Login = () => {
 
   
   return (
- 
 
 
 
@@ -120,7 +119,20 @@ const Login = () => {
         )}
       </div>
 
-      <button type="submit">
+<button
+  type="submit"
+  disabled={Creating}
+  style={{
+    backgroundColor: Creating ? "#999" : "#4CAF50",
+    color: "white",
+    padding: "10px 20px",
+    border: "none",
+    borderRadius: "5px",
+    cursor: loading ? "not-allowed" : "pointer",
+    opacity: loading ? 0.6 : 1,
+    transition: "all 0.3s ease",
+  }}
+>
         {Creating ? "logging in..." : "LOGIN"}
       </button>
 
