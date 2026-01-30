@@ -21,10 +21,9 @@ function App() {
       <Toaster richColors position="top-right" closeButton visibleToasts={3} />
 
       <Routes>
-        {/* PUBLIC ROUTES */}
+     
         <Route path="/*" element={<Publicpage />} />
 
-        {/* DASHBOARD ROUTES */}
         <Route element={<DashboardLayout />}>
           <Route path="/dashboard" element={<Private />} />
             <Route path="text" element={<TextToSpeech />} />
