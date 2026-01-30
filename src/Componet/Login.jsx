@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { toast } from "sonner";
 import { useNavigate } from "react-router-dom";
+import "./login.css"
 
 const LoginSchema = yup.object({
   email: yup.string().required("Email is required").email("Please enter a valid email"),
@@ -119,20 +120,7 @@ const Login = () => {
         )}
       </div>
 
-<button
-  type="submit"
-  disabled={Creating}
-  style={{
-    backgroundColor: Creating ? "#999" : "#4CAF50",
-    color: "white",
-    padding: "10px 20px",
-    border: "none",
-    borderRadius: "5px",
-    cursor: loading ? "not-allowed" : "pointer",
-    opacity: loading ? 0.6 : 1,
-    transition: "all 0.3s ease",
-  }}
->
+      <button type="submit" disabled={Creating} style={{}}>
         {Creating ? "logging in..." : "LOGIN"}
       </button>
 
