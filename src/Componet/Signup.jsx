@@ -18,7 +18,7 @@ const SignupSchema = yup.object({
 const Signup = () => {
   const navigate = useNavigate()
 
-const [showpassword, setshowpassword] = useState(false)
+const [showpassword, setShowPassword] = useState(false)
 const [loading, setloading] = useState(false);
 
 const { register, handleSubmit, formState: {errors} } = 
@@ -117,7 +117,7 @@ const onSubmit = async(data)=>{
 
         <span
           className="toggle-password"
-          onClick={() => setshowpassword(p => !p)}
+          onClick={() => setShowPassword(p => !p)}
         >
           {showpassword ? "Hide" : "Show"}
         </span>
@@ -146,3 +146,40 @@ const onSubmit = async(data)=>{
 
 export default Signup
 
+
+
+
+// import React, { useState } from "react";
+// import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai"; // eye icons
+// import "./dashboard.css";
+
+// const Dashboard = ({ user }) => {
+//   const [showBalance, setShowBalance] = useState(true);
+
+//   return (
+//     <div className="dashboard">
+//       <div className="dashboard-card">
+//         <h2>Welcome Back!</h2>
+
+//         <div className="balance-wrapper">
+//           <p className="label">{showBalance ? "Balance" : "Account Number"}</p>
+//           <div className="balance-display">
+//             <h1 className="value">
+//               {showBalance
+//                 ? `$${user.balance.toLocaleString()}`
+//                 : user.accountNumber}
+//             </h1>
+//             <span
+//               className="toggle-icon"
+//               onClick={() => setShowBalance(prev => !prev)}
+//             >
+//               {showBalance ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
+//             </span>
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default Dashboard;
