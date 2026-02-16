@@ -2,85 +2,89 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}/* ===== Header ===== */
+}
+
+
+
+
 .header {
+
+  background: linear-gradient(135deg, #172236, #0cb89f, #f59e0b);
+  background-size: 400% 400%;
+  animation: gradientMove 15s ease infinite;
+
+  position: sticky;
+  top: 0;
+  z-index: 9999;
   width: 100%;
-  background: #ffffff;
-  border-bottom: 1.5px solid #000000;
+
+  position: relative;
+  z-index: 1000;
 }
 
 .header-container {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 14px 20px;
+  padding: 16px 20px;
 
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap; /* allows wrapping on small screens */
+  align-items: center;
 }
 
-/* Logo */
+
+
 .logo {
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.logo a {
+  text-decoration: none;
+  color: #dadedd;
+}
+
+
+.nav {
   display: flex;
   align-items: center;
-  font-weight: 800;
-  font-size: 22px;
-  letter-spacing: 2px;
+  gap: 20px;
 }
 
-.logo-check {
-  margin-right: 6px;
-}
-
-.logo-main {
-  color: #16a34a; /* trust green */
-}
-
-.logo-sub {
-  margin-left: 6px;
+.nav-link {
+  text-decoration: none;
   color: #111;
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
 
-/* Logout */
-.logout {
-  cursor: pointer;
+.nav-link:hover {
+  color: #16a34a;
+}
+
+.btn-primary {
+  text-decoration: none;
+  background-color: #16a34a;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
   font-weight: 600;
-  color: #dc2626;
+  transition: all 0.3s ease;
 }
 
-.logout:hover {
-  text-decoration: underline;
+.btn-primary:hover {
+  background-color: #15803d;
 }
 
-/* ===== RESPONSIVE ===== */
+
 @media (max-width: 768px) {
   .header-container {
     flex-direction: column;
+    gap: 12px;
     align-items: flex-start;
-    gap: 10px; /* space between logo and logout */
-    padding: 12px 16px;
   }
 
-  .logo {
-    font-size: 20px;
-  }
-
-  .logout {
-    font-size: 14px;
-  }
-}
-
-@media (max-width: 480px) {
-  .header-container {
-    padding: 10px 12px;
-  }
-
-  .logo {
-    font-size: 18px;
-  }
-
-  .logout {
-    font-size: 13px;
+  .nav {
+    gap: 15px;
   }
 }
